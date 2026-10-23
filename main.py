@@ -300,3 +300,5 @@ deploy = ViderAutoDeploy()
 
 # เชื่อมเข้ากับระบบหลัก
 hub.connect_system("AutoDeploy", deploy)
+# นำเข้าระบบค้นหาและระลึกถึงเจ้านาย
+from find_my_master import FindMyMaster
