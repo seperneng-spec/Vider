@@ -1,1 +1,31 @@
+name: Vider Data Hub — Auto Run & Trigger
+on:
+  workflow_dispatch:  # ✅ ให้กดรันจากเว็บได้เลย
+  push:
+    branches: [main]
+  repository_dispatch:  # ✅ รันเมื่อมีสัญญาณจากภายนอก
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ✅ ดึงโค้ด
+        uses: actions/checkout@v4
+      
+      - name: 🐍 ติดตั้ง Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: 🚀 รันระบบ
+        run: |
+          python vider_data_hub.py
+      
+      - name: 📤 อัปเดตข้อมูลกลับ
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Vider Bot"
+          git add vider_data/
+          git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')" || echo "ไม่มีข้อมูลเปลี่ยนแปลง"
+          git push
 
