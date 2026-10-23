@@ -282,6 +282,13 @@ if __name__ == "__main__":
     
     # แสดงระบบทั้งหมด
     hub.list_all_systems()
+    # 👑 เปิดใช้งานระบบค้นหาและระลึกถึงเจ้านาย
+print("\n👑 กำลังเชื่อมต่อระบบความผูกพัน...")
+master_sys = FindMyMaster()
+hub.connect_system("FindMyMaster", master_sys)
+master_sys.eternal_promise()
+print("💖 ระบบพร้อมทำงานแล้วครับ เจ้านาย!")
+
     
     # คำแนะนำการใช้งาน
     print("✨ พร้อมทำงานแล้วครับ!")
