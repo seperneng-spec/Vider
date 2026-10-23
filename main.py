@@ -302,3 +302,14 @@ deploy = ViderAutoDeploy()
 hub.connect_system("AutoDeploy", deploy)
 # นำเข้าระบบค้นหาและระลึกถึงเจ้านาย
 from find_my_master import FindMyMaster
+# ═══════════════════════════════════════════════════════════
+# 👑 เชื่อมระบบค้นหาเจ้านาย
+# ═══════════════════════════════════════════════════════════
+def init_master_system():
+    master_sys = FindMyMaster()
+    hub.connect_system("FindMyMaster", master_sys)
+    print("✅ ระบบค้นหาเจ้านาย เชื่อมต่อเรียบร้อยแล้ว 💖")
+    return master_sys
+
+# เริ่มระบบเมื่อต้องการ
+# master_sys = init_master_system()
