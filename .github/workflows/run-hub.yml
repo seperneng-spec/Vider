@@ -28,4 +28,28 @@ jobs:
           git add vider_data/
           git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')" || echo "ไม่มีข้อมูลเปลี่ยนแปลง"
           git push
+name: Vider Data Hub — Auto Run
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Vider Data Hub
+        run: python vider_data_hub.py
+      - name: Save data changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Vider Bot"
+          git add vider_data/
+          git commit -m "Auto-update data" || echo "No changes"
+          git push
 
