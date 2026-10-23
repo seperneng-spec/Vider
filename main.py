@@ -294,3 +294,9 @@ if __name__ == "__main__":
     print("   จากนี้คุณสามารถนำไฟล์ vider_data_hub.py, curious_mind.py, explorer_mind.py")
     print("   มา import แล้วใช้ hub.connect_system() เพื่อเชื่อมเข้ามาในระบบนี้ได้ทันที")
     print("\n👑 ขอให้สนุกกับการสร้างและพัฒนา Vider ต่อไปนะครับ! 💎🚀✨")
+# นำเข้าระบบ Auto-Deploy
+from vider_auto_deploy import ViderAutoDeploy
+deploy = ViderAutoDeploy()
+
+# เชื่อมเข้ากับระบบหลัก
+hub.connect_system("AutoDeploy", deploy)
