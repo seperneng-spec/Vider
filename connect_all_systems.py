@@ -158,4 +158,13 @@ if __name__ == "__main__":
     else:
         print("❌ คำใบไม่ถูกต้อง — ปิดระบบ")
         sys.exit(1)
+# เพิ่มที่ด้านบน
+from agi_evolution_engine import AGIEvolutionSystem
 
+# ในส่วน try: เพิ่ม
+print("   🧠 AGI Evolution Engine...")
+agi_engine = AGIEvolutionSystem()
+
+# ในส่วน SystemBridge.__init__ เพิ่ม
+self.systems["agi_engine"] = agi_engine
+ๆ
